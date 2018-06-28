@@ -1,0 +1,16 @@
+.CityMenu {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.navMenu {
+    margin-top: 30px;
+    width: 50%;
+}
+
+.navMenu > li {
+    width: 33%;
+    border: 1px solid #337ab7;
+    border-radius: 5px;
+}
