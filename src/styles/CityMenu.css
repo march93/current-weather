@@ -6,11 +6,24 @@
 
 .navMenu {
     margin-top: 30px;
-    width: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .navMenu > li {
-    width: 33%;
+    width: 20%;
     border: 1px solid #337ab7;
     border-radius: 5px;
+}
+
+@media only screen and (max-width: 480px) {
+    .navMenu {
+        flex-direction: column;
+    }
+
+    .navMenu > li {
+        width: 80%;
+        margin: 5px auto !important;
+    }
 }
