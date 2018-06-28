@@ -68,17 +68,17 @@ class WeatherCard extends Component {
                         title="Current Weather Icon"
                     />
                     <CardContent className="cardContent">
-                        <Typography gutterBottom variant="headline" component="h2">
+                        <Typography gutterBottom variant="headline" component="h1" className="tempTitle">
                             Current Weather in {this.props.data.name}
                         </Typography>
-                        <Typography component="p">
-                            Current Temperature: {this.props.data.main.temp}
+                        <Typography component="h2" className="tempSub">
+                            Current Temperature: <span className="degrees">{this.props.data.main.temp} &#8451;</span>
                         </Typography>
-                        <Typography component="p">
-                            Minimum Temperature: {this.props.data.main.temp_min}
+                        <Typography component="h2" className="tempSub">
+                            Minimum Temperature: <span className="degrees">{this.props.data.main.temp_min} &#8451;</span>
                         </Typography>
-                        <Typography component="p">
-                            Maximum Temperature: {this.props.data.main.temp_max}
+                        <Typography component="h2" className="tempSub">
+                            Maximum Temperature: <span className="degrees">{this.props.data.main.temp_max} &#8451;</span>
                         </Typography>
                     </CardContent>
                 </Card>

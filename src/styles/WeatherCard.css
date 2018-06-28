@@ -15,3 +15,41 @@
     height: auto;
     padding: 10px;
 }
+
+.cardContent {
+    width: 70%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tempTitle {
+    font-size: 25px !important;
+    color: #303F9F !important;
+}
+
+.tempSub {
+    font-size: 20px !important;
+    color: #1976D2 !important;
+}
+
+.degrees {
+    color: #E65100 !important;
+}
+
+@media only screen and (max-width: 767px) {
+    .card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cardMedia {
+        margin: 0 auto;
+        height: 130px;
+    }
+
+    .cardContent {
+        margin: 0 auto;
+    }
+}
