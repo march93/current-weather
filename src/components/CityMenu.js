@@ -3,8 +3,9 @@ import { Nav, NavItem } from 'react-bootstrap';
 import '../styles/CityMenu.css';
 import { connect } from 'react-redux';
 import { changeCity } from '../actions/Action';
-import { CHANGE_CITY, TORONTO, MONTREAL, OTTAWA } from '../constants/Constants';
+import { TORONTO, MONTREAL, OTTAWA } from '../constants/Constants';
 
+// dispatch change city action to redux store
 const mapDispatchToProps = dispatch => {
     return {
         changeCity: city => dispatch(changeCity(city))

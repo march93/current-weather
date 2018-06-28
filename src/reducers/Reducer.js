@@ -1,13 +1,13 @@
-import { CHANGE_CITY, TORONTO } from "../constants/Constants";
+import { CHANGE_CITY, TORONTO } from '../constants/Constants';
 
 const initialState = {
-    cities: TORONTO
+    city: TORONTO
 };
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_CITY:
-            return { ...state, cities: action.payload };
+            return { ...state, city: action.payload };
         default:
             return state;
     }
