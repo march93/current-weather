@@ -1,33 +1,46 @@
 import React, { Component } from 'react';
 import { Nav, NavItem } from 'react-bootstrap';
 import '../styles/CityMenu.css';
+import { connect } from 'react-redux';
+import { changeCity } from '../actions/Action';
+import { CHANGE_CITY, TORONTO, MONTREAL, OTTAWA } from '../constants/Constants';
+
+const mapDispatchToProps = dispatch => {
+    return {
+        changeCity: city => dispatch(changeCity(city))
+    };
+};
 
 class CityMenu extends Component {
     constructor(props) {
         super(props);
     
         this.state = {
-            activeKey: 1
+            activeKey: TORONTO
         };
     }
 
     handleSelect(selectedKey) {
+        // handle UI change of city menu
         this.setState( {
             activeKey: selectedKey
         });
+
+        // store selected city in redux store
+        this.props.changeCity(selectedKey);
     }
 
     render() {
         return (
         <div className="CityMenu">
             <Nav bsStyle="pills" className="navMenu" activeKey={this.state.activeKey} onSelect={key => this.handleSelect(key)}>
-                <NavItem eventKey={1}>
+                <NavItem eventKey={TORONTO}>
                     Toronto
                 </NavItem>
-                <NavItem eventKey={2}>
+                <NavItem eventKey={MONTREAL}>
                     Montreal
                 </NavItem>
-                <NavItem eventKey={3}>
+                <NavItem eventKey={OTTAWA}>
                     Ottawa
                 </NavItem>
             </Nav>
@@ -36,4 +49,6 @@ class CityMenu extends Component {
     }
 }
 
-export default CityMenu;
+const Menu = connect(null, mapDispatchToProps)(CityMenu);
+
+export default Menu;
