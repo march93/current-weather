@@ -8,6 +8,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { List } from 'react-content-loader'
 
 // get state from redux store
 const mapStateToProps = state => {
@@ -25,6 +26,10 @@ class WeatherCard extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            loading: true
+        }
+
         this.city = this.props.city;
     }
 
@@ -36,29 +41,43 @@ class WeatherCard extends Component {
             .query({ q: this.city, units: 'metric', appid: APIKEY })
             .end(function(err, res){
                 if (res.body) {
+                    // disable loading
+                    this.setState({
+                        loading: false
+                    });
+
                     // save results to weatherData variable
-                    console.log(res.body);
                     this.props.loadData(res.body);
                 } else {
                     console.log(err);
+
+                    // disable loading
+                    this.setState({
+                        loading: false
+                    });
                 }
         }.bind(this));
     }
 
     componentDidMount() {
+        // get initial weather report for default city
         this.getWeatherReport();
     }
 
     componentWillReceiveProps(nextProps) {
+        // update loader and city when user clicks a different city
         if (this.props.city !== nextProps.city) {
+            this.setState({
+                loading: true
+            });
             this.city = nextProps.city;
             this.getWeatherReport();
         }
     }
 
     render() {
-        // render card only when weather data is available
-        if (Object.keys(this.props.data).length !== 0 && this.props.data.constructor === Object) {
+        // render card only when weather data is available and loader is false
+        if (Object.keys(this.props.data).length !== 0 && this.props.data.constructor === Object && !this.state.loading) {
             return (
             <div className="WeatherCard">
                 <Card className="card">
@@ -86,7 +105,14 @@ class WeatherCard extends Component {
             );
         } else {
             // render loading screen
-            return null;
+            return (
+                <div className="loading-div">
+                    <span>Loading...</span>
+                    <List 
+                        className="loader"    
+                    />
+                </div>
+            );
         }
     }
 }

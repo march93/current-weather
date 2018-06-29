@@ -38,6 +38,19 @@
     color: #E65100 !important;
 }
 
+.loading-div {
+    font-size: 30px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.loader {
+    height: 100px;
+    margin-top: 10px;
+    padding-left: 80px;
+}
+
 @media only screen and (max-width: 767px) {
     .card {
         display: flex;
