@@ -1,6 +1,6 @@
 # Current Weather
 
-Displays the current, minimum, and maximum temperatures of Toronto, Montreal, and Ottawa in Celcius. This web app is built with React and utilizes the public APIs from https://openweathermap.org/.
+Displays the current, minimum, and maximum temperatures of Toronto, Montreal, and Ottawa in Celcius. This web app is built with React/Redux and utilizes the public APIs from https://openweathermap.org/.
 
 ## Getting Started
 
